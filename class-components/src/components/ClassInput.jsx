@@ -45,11 +45,10 @@ class ClassInput extends Component {
       const newTodo = this.state.todos
       newTodo[task] = this.state.inputVal
       this.setState((state) => ({
-        ...state,
+        save: '',
         todos: newTodo,
         inputVal: ''
       }))
-      console.log(task)
       return
     }
     this.setState((state) => ({
@@ -90,7 +89,7 @@ class ClassInput extends Component {
             value={this.state.inputVal}
             onChange={this.handleInputChange}
           />
-          <button type="submit">{this.state.save ? 'Resubmit' : 'Submit'}</button>
+          <button type="submit">{this.state.save === '' ? 'Submit' : 'Resubmit'}</button>
         </form>
         <h4>All the tasks!</h4>
         <TaskCount count={this.state.todos.length}/>
